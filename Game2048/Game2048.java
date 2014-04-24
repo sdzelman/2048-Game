@@ -377,21 +377,21 @@ public class Game2048 extends JPanel
     }
 
     public Color getForeground() {
-      return value < 16 ? new Color(0x776e65) :  new Color(0xf9f6f2);
+      return value < 2048 ? new Color(0x626262) :  new Color(0xd7d7d7);
     }
 
     public Color getBackground() {
       switch (value) {
-        case 2:    return new Color(0xf7977a);
+        case 2:    return new Color(0xf9ad81);
         case 4:    return new Color(0xfdc68a);
         case 8:    return new Color(0xfff79a);
         case 16:   return new Color(0xc4df9b);
-        case 32:   return new Color(0x7bcdc8);
-        case 64:   return new Color(0x8493ca);
-        case 128:  return new Color(0xa187be);
-        case 256:  return new Color(0xbc8dbf);
-        case 512:  return new Color(0xf6989d);
-        case 1024: return new Color(0x9e005d);
+        case 32:   return new Color(0xa2d39c);
+        case 64:   return new Color(0x7bcdc8);
+        case 128:  return new Color(0x8493ca);
+        case 256:  return new Color(0xa187be);
+        case 512:  return new Color(0xbc8dbf);
+        case 1024: return new Color(0xf6989d);
         case 2048: return new Color(0x000000);
       }
       return new Color(0xcdc1b4);
