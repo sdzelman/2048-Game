@@ -319,7 +319,7 @@ public class Game2048 extends JPanel
     int xOffset = offsetCoors(x);
     int yOffset = offsetCoors(y);
     g.setColor(tile.getBackground());
-    g.fillRoundRect(xOffset, yOffset, TILE_SIZE, TILE_SIZE, 14, 14);
+    g.fillRect(xOffset, yOffset, TILE_SIZE, TILE_SIZE);
     g.setColor(tile.getForeground());
     final int size = value < 100 ? 36 : value < 1000 ? 32 : 24;
     final Font font = new Font(FONT_NAME, Font.BOLD, size);
@@ -380,17 +380,17 @@ public class Game2048 extends JPanel
 
     public Color getBackground() {
       switch (value) {
-        case 2:    return new Color(0xeee4da);
-        case 4:    return new Color(0xede0c8);
-        case 8:    return new Color(0xf2b179);
-        case 16:   return new Color(0xf59563);
-        case 32:   return new Color(0xf67c5f);
-        case 64:   return new Color(0xf65e3b);
-        case 128:  return new Color(0xedcf72);
-        case 256:  return new Color(0xedcc61);
-        case 512:  return new Color(0xedc850);
-        case 1024: return new Color(0xedc53f);
-        case 2048: return new Color(0xedc22e);
+        case 2:    return new Color(0xff0026);
+        case 4:    return new Color(0xff6e00);
+        case 8:    return new Color(0xf2eb26);
+        case 16:   return new Color(0x3ef226);
+        case 32:   return new Color(0x26a0f2);
+        case 64:   return new Color(0x9626f2);
+        case 128:  return new Color(0xfc59ff);
+        case 256:  return new Color(0x461847);
+        case 512:  return new Color(0xeda265);
+        case 1024: return new Color(0xb3c0f2);
+        case 2048: return new Color(0x000000);
       }
       return new Color(0xcdc1b4);
     }
