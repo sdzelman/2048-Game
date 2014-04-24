@@ -27,9 +27,9 @@ public class Game2048 extends JPanel
     
     {
       @Override
-      public void keyPressed(KeyEvent e) 
+      public void keyPressed(KeyEvent keyinput) 
       {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) 
+        if (keyinput.getKeyCode() == KeyEvent.VK_ENTER) 
         {
           resetGame();
         }
@@ -40,7 +40,7 @@ public class Game2048 extends JPanel
 
         if (!myWin && !myLose) 
         {
-          switch (e.getKeyCode()) 
+          switch (keyinput.getKeyCode()) 
           {
             case KeyEvent.VK_LEFT:
               left();
