@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Game2048 extends JPanel 
+public class Game3072 extends JPanel 
 {
   private static final Color BG_COLOR = new Color(0xbbada0);
   private static final String FONT_NAME = "Comic Sans";
@@ -18,7 +18,7 @@ public class Game2048 extends JPanel
   boolean loser = false;
   int totalScore = 0;
 
-  public Game2048() 
+  public Game3072() 
   {
     setFocusable(true);
     addKeyListener(new KeyAdapter() 
@@ -29,7 +29,7 @@ public class Game2048 extends JPanel
       {
         if (keyinput.getKeyCode() == KeyEvent.VK_ENTER) 
         {
-          resetGame();
+          newGame();
         }
         if (!canMove()) 
         {
@@ -58,10 +58,10 @@ public class Game2048 extends JPanel
         repaint();
       }
     });
-    resetGame();
+    newGame();
   }
 
-  public void resetGame() 
+  public void newGame() 
   {
     totalScore = 0;
     winner = false;
@@ -128,8 +128,8 @@ public class Game2048 extends JPanel
     if (!availableSpace().isEmpty()) 
     {
       int index = (int) (Math.random() * list.size()) % list.size();
-      Tile emptyTime = list.get(index);
-      emptyTime.value = Math.random() < 0.9 ? 3 : 6;
+      Tile emptyTile = list.get(index);
+      emptyTile.value = Math.random() < 0.9 ? 3 : 6;
     }
   }
 
@@ -343,12 +343,12 @@ public class Game2048 extends JPanel
         g.drawString("You won!", 68, 150);
       }
       if (loser) {
-        g.drawString("Game over!", 40, 60);
+        g.drawString("You lost!", 65, 60);
       }
       if (winner || loser) {
         g.setFont(new Font(FONT_NAME, Font.PLAIN, 25));
         g.setColor(new Color(128, 128, 128, 128));
-        g.drawString("Press ENTER to play again", 16, getHeight() - 270);
+        g.drawString("Press ENTER to restart", 35, getHeight() - 270);
       }
     }
     g.setFont(new Font(FONT_NAME, Font.PLAIN, 18));
@@ -403,7 +403,7 @@ public class Game2048 extends JPanel
     game.setSize(340, 400);
     game.setResizable(false);
 
-    game.add(new Game2048());
+    game.add(new Game3072());
 
     game.setLocationRelativeTo(null);
     game.setVisible(true);
