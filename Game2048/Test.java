@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Game3072 extends JPanel 
+public class Test extends JPanel 
 {
   private static final Color BG_COLOR = new Color(0xbbada0);
-  private static final String FONT_NAME = "Helvetica";
+  private static final String FONT_NAME = "Comic Sans";
   private static final int TILE_SIZE = 64;
   private static final int TILES_MARGIN = 16;
 
@@ -18,7 +18,7 @@ public class Game3072 extends JPanel
   boolean loser = false;
   int totalScore = 0;
 
-  public Game3072() 
+  public Test() 
   {
     setFocusable(true);
     addKeyListener(new KeyAdapter() 
@@ -396,16 +396,5 @@ public class Game3072 extends JPanel
     }
   }
 
-  public static void main(String[] args) {
-    JFrame game = new JFrame();
-    game.setTitle("APCS 3072");
-    game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    game.setSize(340, 400);
-    game.setResizable(false);
 
-    game.add(new Game3072());
-
-    game.setLocationRelativeTo(null);
-    game.setVisible(true);
-  }
 }
