@@ -1,22 +1,15 @@
 #BlueJ package file
-<<<<<<< HEAD
-package.editor.height=555
-package.editor.width=547
-package.editor.x=782
-package.editor.y=248
-=======
 package.editor.height=556
 package.editor.width=549
 package.editor.x=0
 package.editor.y=0
->>>>>>> 4c225ad16790c7ca5356cdcbe31f88cbc1649e7d
 package.numDependencies=0
 package.numTargets=1
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
 target1.editor.height=1056
-target1.editor.width=1936
+target1.editor.width=1932
 target1.editor.x=-8
 target1.editor.y=-8
 target1.height=50
