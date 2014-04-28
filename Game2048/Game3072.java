@@ -67,7 +67,6 @@ public class Game3072 extends JPanel
     );
     newGame();
   }
-
   
   public void move() 
   {
@@ -162,15 +161,10 @@ public class Game3072 extends JPanel
     }
     return list;
   }
-
-  private boolean isFull() 
-  {
-    return availableSpace().size() == 0;
-  }
-
+  
   boolean canMove() 
   {
-    if (!isFull()) 
+    if (!(availableSpace().size() == 0)) 
     {
       return true;
     }
@@ -262,7 +256,7 @@ public class Game3072 extends JPanel
     }
     
     else
-{
+    {
       ensureSize(list, 4);
       return list.toArray(new Tile[4]);
     }
@@ -286,7 +280,6 @@ public class Game3072 extends JPanel
     System.arraycopy(re, 0, gametile, index * 4, 4);
   }
 
-  @Override
   public void paint(Graphics g) {
     super.paint(g);
     g.setColor(BG_COLOR);
