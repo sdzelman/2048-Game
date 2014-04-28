@@ -42,20 +42,20 @@ public class Game3072 extends JPanel
           {
             case KeyEvent.VK_L:
               gametile = rotate(180);
-              left();
+              move();
               gametile = rotate(180);
               break;
             case KeyEvent.VK_J:
-              left();
+              move();
               break;
             case KeyEvent.VK_K:
               gametile = rotate(90);
-              left();
+              move();
               gametile = rotate(270);;
               break;
             case KeyEvent.VK_I:
               gametile = rotate(270);
-              left();
+              move();
               gametile = rotate(90);
               break;
           }
@@ -67,8 +67,9 @@ public class Game3072 extends JPanel
     );
     newGame();
   }
+
   
-  public void left() 
+  public void move() 
   {
     boolean needAddTile = false;
     for (int i = 0; i < 4; i++) 
