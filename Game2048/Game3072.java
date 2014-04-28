@@ -140,8 +140,8 @@ public class Game3072 extends JPanel
 
   private void addTile() 
   {
-    List<Tile> list = availableSpace();
-    if (!availableSpace().isEmpty()) 
+    List<Tile> list = openSpace();
+    if (!openSpace().isEmpty()) 
     {
       int index = (int) (Math.random() * list.size()) % list.size();
       Tile emptyTile = list.get(index);
@@ -149,7 +149,7 @@ public class Game3072 extends JPanel
     }
   }
 
-  private List<Tile> availableSpace() 
+  private List<Tile> openSpace() 
   {
     final List<Tile> list = new ArrayList<Tile>(16);
     for (Tile t : gametile) 
@@ -164,7 +164,7 @@ public class Game3072 extends JPanel
   
   boolean canMove() 
   {
-    if (!(availableSpace().size() == 0)) 
+    if (!(openSpace().size() == 0)) 
     {
       return true;
     }
