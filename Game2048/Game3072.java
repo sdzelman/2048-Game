@@ -22,9 +22,9 @@ public class Game3072 extends JPanel
   {
     setFocusable(true);
     addKeyListener(new KeyAdapter() 
-    
+    //sets keys for the movement in the game
     {
-      @Override
+      
       public void keyPressed(KeyEvent keyinput) 
       {
         if (keyinput.getKeyCode() == KeyEvent.VK_ENTER) 
@@ -64,10 +64,10 @@ public class Game3072 extends JPanel
 
   public void newGame() 
   {
-    totalScore = 0;
+    totalScore = 0; //sets user score to 0
     winner = false;
     loser = false;
-    gametile = new Tile[4 * 4];
+    gametile = new Tile[4 * 4]; //sets the game board
     
     for (int i = 0; i < gametile.length; i++) 
     {
