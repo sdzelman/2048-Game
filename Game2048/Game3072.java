@@ -22,9 +22,9 @@ public class Game3072 extends JPanel
   {
     setFocusable(true);
     addKeyListener(new KeyAdapter() 
-    
+    //sets keys for the movement in the game
     {
-      @Override
+      
       public void keyPressed(KeyEvent keyinput) 
       {
         if (keyinput.getKeyCode() == KeyEvent.VK_ENTER) 
@@ -40,42 +40,34 @@ public class Game3072 extends JPanel
         {
           switch (keyinput.getKeyCode()) 
           {
-            case KeyEvent.VK_RIGHT:
-              right();
+            case KeyEvent.VK_L:
+              gametile = rotate(180);
+              left();
+              gametile = rotate(180);
               break;
-            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_J:
               left();
               break;
-            case KeyEvent.VK_DOWN:
-              down();
+            case KeyEvent.VK_K:
+              gametile = rotate(90);
+              left();
+              gametile = rotate(270);;
               break;
-            case KeyEvent.VK_UP:
-              up();
+            case KeyEvent.VK_I:
+              gametile = rotate(270);
+              left();
+              gametile = rotate(90);
               break;
           }
         }
 
         repaint();
       }
-    });
+    }
+    );
     newGame();
   }
-
-  public void newGame() 
-  {
-    totalScore = 0;
-    winner = false;
-    loser = false;
-    gametile = new Tile[4 * 4];
-    
-    for (int i = 0; i < gametile.length; i++) 
-    {
-      gametile[i] = new Tile();
-    }
-    addTile();
-    addTile();
-  }
-
+  
   public void left() 
   {
     boolean needAddTile = false;
@@ -95,26 +87,50 @@ public class Game3072 extends JPanel
       addTile();
     }
   }
-
-  public void right() 
+  
+  public void newGame() 
   {
-    gametile = rotate(180);
-    left();
-    gametile = rotate(180);
+    totalScore = 0; //sets user score to 0
+    winner = false;
+    loser = false;
+    gametile = new Tile[4 * 4]; //sets the game board
+    
+    for (int i = 0; i < gametile.length; i++) 
+    {
+      gametile[i] = new Tile();
+    }
+    addTile();
+    addTile();
   }
 
-  public void up() 
+  private Tile[] rotate(int angle) 
   {
-    gametile = rotate(270);
-    left();
-    gametile = rotate(90);
-  }
+    Tile[] newTiles = new Tile[4 * 4];
+    int offsetX = 3, offsetY = 3;
+    
+    if (angle == 90) 
+    {
+      offsetY = 0;
+    }
+    
+    else if (angle == 270) 
+    {
+      offsetX = 0;
+    }
 
-  public void down() 
-  {
-    gametile = rotate(90);
-    left();
-    gametile = rotate(270);
+    double rad = Math.toRadians(angle);
+    int cos = (int) Math.cos(rad);
+    int sin = (int) Math.sin(rad);
+    for (int x = 0; x < 4; x++) 
+    {
+      for (int y = 0; y < 4; y++) 
+      {
+        int newX = (x * cos) - (y * sin) + offsetX;
+        int newY = (x * sin) + (y * cos) + offsetY;
+        newTiles[(newX) + (newY) * 4] = tileAt(x, y);
+      }
+    }
+    return newTiles;
   }
 
   private Tile tileAt(int x, int y) 
@@ -191,36 +207,6 @@ public class Game3072 extends JPanel
         }
     }
     return true;
-  }
-
-  private Tile[] rotate(int angle) 
-  {
-    Tile[] newTiles = new Tile[4 * 4];
-    int offsetX = 3, offsetY = 3;
-    
-    if (angle == 90) 
-    {
-      offsetY = 0;
-    }
-    
-    else if (angle == 270) 
-    {
-      offsetX = 0;
-    }
-
-    double rad = Math.toRadians(angle);
-    int cos = (int) Math.cos(rad);
-    int sin = (int) Math.sin(rad);
-    for (int x = 0; x < 4; x++) 
-    {
-      for (int y = 0; y < 4; y++) 
-      {
-        int newX = (x * cos) - (y * sin) + offsetX;
-        int newY = (x * sin) + (y * cos) + offsetY;
-        newTiles[(newX) + (newY) * 4] = tileAt(x, y);
-      }
-    }
-    return newTiles;
   }
 
   private Tile[] moveLine(Tile[] initLine) 
