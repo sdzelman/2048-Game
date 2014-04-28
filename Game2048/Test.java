@@ -1,15 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;   
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Game3072 extends JPanel 
+public class Test extends JPanel 
 {
   private static final Color BG_COLOR = new Color(0xbbada0);
-  private static final String FONT_NAME = "Helvetica";
+  private static final String FONT_NAME = "Comic Sans";
   private static final int TILE_SIZE = 64;
   private static final int TILES_MARGIN = 16;
 
@@ -18,13 +18,13 @@ public class Game3072 extends JPanel
   boolean loser = false;
   int totalScore = 0;
 
-  public Game3072() 
+  public Test() 
   {
     setFocusable(true);
     addKeyListener(new KeyAdapter() 
-    //sets keys for the movement in the game
+    
     {
-      
+      @Override
       public void keyPressed(KeyEvent keyinput) 
       {
         if (keyinput.getKeyCode() == KeyEvent.VK_ENTER) 
@@ -57,17 +57,16 @@ public class Game3072 extends JPanel
 
         repaint();
       }
-    }
-    );
+    });
     newGame();
   }
 
   public void newGame() 
   {
-    totalScore = 0; //sets user score to 0
+    totalScore = 0;
     winner = false;
     loser = false;
-    gametile = new Tile[4 * 4]; //sets the game board
+    gametile = new Tile[4 * 4];
     
     for (int i = 0; i < gametile.length; i++) 
     {
@@ -96,37 +95,7 @@ public class Game3072 extends JPanel
       addTile();
     }
   }
-  
-  private Tile[] rotate(int angle) 
-  {
-    Tile[] newTiles = new Tile[4 * 4];
-    int offsetX = 3, offsetY = 3;
-    
-    if (angle == 90) 
-    {
-      offsetY = 0;
-    }
-    
-    else if (angle == 270) 
-    {
-      offsetX = 0;
-    }
 
-    double rad = Math.toRadians(angle);
-    int cos = (int) Math.cos(rad);
-    int sin = (int) Math.sin(rad);
-    for (int x = 0; x < 4; x++) 
-    {
-      for (int y = 0; y < 4; y++) 
-      {
-        int newX = (x * cos) - (y * sin) + offsetX;
-        int newY = (x * sin) + (y * cos) + offsetY;
-        newTiles[(newX) + (newY) * 4] = tileAt(x, y);
-      }
-    }
-    return newTiles;
-  }
-  
   public void right() 
   {
     gametile = rotate(180);
@@ -222,6 +191,36 @@ public class Game3072 extends JPanel
         }
     }
     return true;
+  }
+
+  private Tile[] rotate(int angle) 
+  {
+    Tile[] newTiles = new Tile[4 * 4];
+    int offsetX = 3, offsetY = 3;
+    
+    if (angle == 90) 
+    {
+      offsetY = 0;
+    }
+    
+    else if (angle == 270) 
+    {
+      offsetX = 0;
+    }
+
+    double rad = Math.toRadians(angle);
+    int cos = (int) Math.cos(rad);
+    int sin = (int) Math.sin(rad);
+    for (int x = 0; x < 4; x++) 
+    {
+      for (int y = 0; y < 4; y++) 
+      {
+        int newX = (x * cos) - (y * sin) + offsetX;
+        int newY = (x * sin) + (y * cos) + offsetY;
+        newTiles[(newX) + (newY) * 4] = tileAt(x, y);
+      }
+    }
+    return newTiles;
   }
 
   private Tile[] moveLine(Tile[] initLine) 
@@ -397,16 +396,5 @@ public class Game3072 extends JPanel
     }
   }
 
-  public static void main(String[] args) {
-    JFrame game = new JFrame();
-    game.setTitle("APCS 3072");
-    game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    game.setSize(340, 400);
-    game.setResizable(false);
 
-    game.add(new Game3072());
-
-    game.setLocationRelativeTo(null);
-    game.setVisible(true);
-  }
 }
