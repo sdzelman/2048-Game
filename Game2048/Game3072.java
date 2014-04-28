@@ -57,7 +57,8 @@ public class Game3072 extends JPanel
 
         repaint();
       }
-    });
+    }
+    );
     newGame();
   }
 
@@ -95,7 +96,37 @@ public class Game3072 extends JPanel
       addTile();
     }
   }
+  
+  private Tile[] rotate(int angle) 
+  {
+    Tile[] newTiles = new Tile[4 * 4];
+    int offsetX = 3, offsetY = 3;
+    
+    if (angle == 90) 
+    {
+      offsetY = 0;
+    }
+    
+    else if (angle == 270) 
+    {
+      offsetX = 0;
+    }
 
+    double rad = Math.toRadians(angle);
+    int cos = (int) Math.cos(rad);
+    int sin = (int) Math.sin(rad);
+    for (int x = 0; x < 4; x++) 
+    {
+      for (int y = 0; y < 4; y++) 
+      {
+        int newX = (x * cos) - (y * sin) + offsetX;
+        int newY = (x * sin) + (y * cos) + offsetY;
+        newTiles[(newX) + (newY) * 4] = tileAt(x, y);
+      }
+    }
+    return newTiles;
+  }
+  
   public void right() 
   {
     gametile = rotate(180);
@@ -191,36 +222,6 @@ public class Game3072 extends JPanel
         }
     }
     return true;
-  }
-
-  private Tile[] rotate(int angle) 
-  {
-    Tile[] newTiles = new Tile[4 * 4];
-    int offsetX = 3, offsetY = 3;
-    
-    if (angle == 90) 
-    {
-      offsetY = 0;
-    }
-    
-    else if (angle == 270) 
-    {
-      offsetX = 0;
-    }
-
-    double rad = Math.toRadians(angle);
-    int cos = (int) Math.cos(rad);
-    int sin = (int) Math.sin(rad);
-    for (int x = 0; x < 4; x++) 
-    {
-      for (int y = 0; y < 4; y++) 
-      {
-        int newX = (x * cos) - (y * sin) + offsetX;
-        int newY = (x * sin) + (y * cos) + offsetY;
-        newTiles[(newX) + (newY) * 4] = tileAt(x, y);
-      }
-    }
-    return newTiles;
   }
 
   private Tile[] moveLine(Tile[] initLine) 
