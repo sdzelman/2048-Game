@@ -41,16 +41,22 @@ public class Game3072 extends JPanel
           switch (keyinput.getKeyCode()) 
           {
             case KeyEvent.VK_L:
-              right();
+              gametile = rotate(180);
+              left();
+              gametile = rotate(180);
               break;
             case KeyEvent.VK_J:
               left();
               break;
             case KeyEvent.VK_K:
-              down();
+              gametile = rotate(90);
+              left();
+              gametile = rotate(270);;
               break;
             case KeyEvent.VK_I:
-              up();
+              gametile = rotate(270);
+              left();
+              gametile = rotate(90);
               break;
           }
         }
@@ -60,27 +66,6 @@ public class Game3072 extends JPanel
     }
     );
     newGame();
-  }
-
-  public void right() 
-  {
-    gametile = rotate(180);
-    left();
-    gametile = rotate(180);
-  }
-
-  public void up() 
-  {
-    gametile = rotate(270);
-    left();
-    gametile = rotate(90);
-  }
-
-  public void down() 
-  {
-    gametile = rotate(90);
-    left();
-    gametile = rotate(270);
   }
   
   public void left() 
