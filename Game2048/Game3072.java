@@ -62,21 +62,27 @@ public class Game3072 extends JPanel
     newGame();
   }
 
-  public void newGame() 
+  public void right() 
   {
-    totalScore = 0; //sets user score to 0
-    winner = false;
-    loser = false;
-    gametile = new Tile[4 * 4]; //sets the game board
-    
-    for (int i = 0; i < gametile.length; i++) 
-    {
-      gametile[i] = new Tile();
-    }
-    addTile();
-    addTile();
+    gametile = rotate(180);
+    left();
+    gametile = rotate(180);
   }
 
+  public void up() 
+  {
+    gametile = rotate(270);
+    left();
+    gametile = rotate(90);
+  }
+
+  public void down() 
+  {
+    gametile = rotate(90);
+    left();
+    gametile = rotate(270);
+  }
+  
   public void left() 
   {
     boolean needAddTile = false;
@@ -97,6 +103,21 @@ public class Game3072 extends JPanel
     }
   }
   
+  public void newGame() 
+  {
+    totalScore = 0; //sets user score to 0
+    winner = false;
+    loser = false;
+    gametile = new Tile[4 * 4]; //sets the game board
+    
+    for (int i = 0; i < gametile.length; i++) 
+    {
+      gametile[i] = new Tile();
+    }
+    addTile();
+    addTile();
+  }
+
   private Tile[] rotate(int angle) 
   {
     Tile[] newTiles = new Tile[4 * 4];
@@ -125,27 +146,6 @@ public class Game3072 extends JPanel
       }
     }
     return newTiles;
-  }
-  
-  public void right() 
-  {
-    gametile = rotate(180);
-    left();
-    gametile = rotate(180);
-  }
-
-  public void up() 
-  {
-    gametile = rotate(270);
-    left();
-    gametile = rotate(90);
-  }
-
-  public void down() 
-  {
-    gametile = rotate(90);
-    left();
-    gametile = rotate(270);
   }
 
   private Tile tileAt(int x, int y) 
