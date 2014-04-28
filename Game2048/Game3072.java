@@ -40,16 +40,16 @@ public class Game3072 extends JPanel
         {
           switch (keyinput.getKeyCode()) 
           {
-            case KeyEvent.VK_RIGHT:
+            case KeyEvent.VK_L:
               right();
               break;
-            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_J:
               left();
               break;
-            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_K:
               down();
               break;
-            case KeyEvent.VK_UP:
+            case KeyEvent.VK_I:
               up();
               break;
           }
