@@ -40,20 +40,20 @@ public class Game3072 extends JPanel
         {
           switch (keyinput.getKeyCode()) 
           {
-            case KeyEvent.VK_L:
+            case KeyEvent.VK_L: //moves right
               gametile = rotate(180);
               move();
               gametile = rotate(180);
               break;
-            case KeyEvent.VK_J:
+            case KeyEvent.VK_J: //moves left
               move();
               break;
-            case KeyEvent.VK_K:
+            case KeyEvent.VK_K: //moves down
               gametile = rotate(90);
               move();
               gametile = rotate(270);;
               break;
-            case KeyEvent.VK_I:
+            case KeyEvent.VK_I: //moves up
               gametile = rotate(270);
               move();
               gametile = rotate(90);
