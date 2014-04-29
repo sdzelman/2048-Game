@@ -88,19 +88,19 @@ public class Game3072 extends JPanel
   
   public void move() 
   {
-    boolean needAddTile = false;
+    boolean needNewTile = false;
     for (int i = 0; i < 4; i++) 
     {
       Tile[] line = getLine(i);
       Tile[] merged = mergeLine(moveLine(line));
       setLine(i, merged);
-      if (!needAddTile && !compare(line, merged)) 
+      if (!needNewTile && !compare(line, merged)) 
       {
-        needAddTile = true;
+        needNewTile = true;
       }
     }
 
-    if (needAddTile) 
+    if (needNewTile) 
     {
       addTile();
     }
