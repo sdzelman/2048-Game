@@ -40,11 +40,12 @@ public class Game3072 extends JPanel
         {
           switch (keyinput.getKeyCode()) 
           {
-            case KeyEvent.VK_L:
+            case KeyEvent.VK_L: //moves right
               gametile = rotate(180);
               move();
               gametile = rotate(180);
               break;
+<<<<<<< HEAD
             case KeyEvent.VK_RIGHT:
               gametile = rotate(180);
               move();
@@ -57,16 +58,26 @@ public class Game3072 extends JPanel
               move();
               break;
             case KeyEvent.VK_K:
+=======
+            case KeyEvent.VK_J: //moves left
+              move();
+              break;
+            case KeyEvent.VK_K: //moves down
+>>>>>>> 35bc1982e99ea0354a23192287b4af7925719f0b
               gametile = rotate(90);
               move();
               gametile = rotate(270);;
               break;
+<<<<<<< HEAD
             case KeyEvent.VK_DOWN:
               gametile = rotate(90);
               move();
               gametile = rotate(270);;
               break;
             case KeyEvent.VK_I:
+=======
+            case KeyEvent.VK_I: //moves up
+>>>>>>> 35bc1982e99ea0354a23192287b4af7925719f0b
               gametile = rotate(270);
               move();
               gametile = rotate(90);
@@ -85,7 +96,6 @@ public class Game3072 extends JPanel
     );
     newGame();
   }
-
   
   public void move() 
   {
@@ -159,8 +169,8 @@ public class Game3072 extends JPanel
 
   private void addTile() 
   {
-    List<Tile> list = availableSpace();
-    if (!availableSpace().isEmpty()) 
+    List<Tile> list = openSpace();
+    if (!openSpace().isEmpty()) 
     {
       int index = (int) (Math.random() * list.size()) % list.size();
       Tile emptyTile = list.get(index);
@@ -168,7 +178,7 @@ public class Game3072 extends JPanel
     }
   }
 
-  private List<Tile> availableSpace() 
+  private List<Tile> openSpace() 
   {
     final List<Tile> list = new ArrayList<Tile>(16);
     for (Tile t : gametile) 
@@ -180,15 +190,10 @@ public class Game3072 extends JPanel
     }
     return list;
   }
-
-  private boolean isFull() 
-  {
-    return availableSpace().size() == 0;
-  }
-
+  
   boolean canMove() 
   {
-    if (!isFull()) 
+    if (!(openSpace().size() == 0)) 
     {
       return true;
     }
@@ -280,7 +285,7 @@ public class Game3072 extends JPanel
     }
     
     else
-{
+    {
       ensureSize(list, 4);
       return list.toArray(new Tile[4]);
     }
