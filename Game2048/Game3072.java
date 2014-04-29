@@ -45,39 +45,28 @@ public class Game3072 extends JPanel
               move();
               gametile = rotate(180);
               break;
-<<<<<<< HEAD
             case KeyEvent.VK_RIGHT:
               gametile = rotate(180);
               move();
               gametile = rotate(180);
               break;
-            case KeyEvent.VK_J:
+            case KeyEvent.VK_J: //moves left
               move();
               break;
             case KeyEvent.VK_LEFT:
               move();
               break;
-            case KeyEvent.VK_K:
-=======
-            case KeyEvent.VK_J: //moves left
-              move();
-              break;
             case KeyEvent.VK_K: //moves down
->>>>>>> 35bc1982e99ea0354a23192287b4af7925719f0b
               gametile = rotate(90);
               move();
               gametile = rotate(270);;
               break;
-<<<<<<< HEAD
             case KeyEvent.VK_DOWN:
               gametile = rotate(90);
               move();
               gametile = rotate(270);;
               break;
-            case KeyEvent.VK_I:
-=======
             case KeyEvent.VK_I: //moves up
->>>>>>> 35bc1982e99ea0354a23192287b4af7925719f0b
               gametile = rotate(270);
               move();
               gametile = rotate(90);
