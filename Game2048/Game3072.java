@@ -123,7 +123,7 @@ public class Game3072 extends JPanel
 
   private Tile[] rotate(int angle) 
   {
-    Tile[] newTiles = new Tile[4 * 4];
+    Tile[] newTiles = new Tile[ 16 ];
     int offsetX = 3, offsetY = 3;
     
     if (angle == 90) 
@@ -161,7 +161,7 @@ public class Game3072 extends JPanel
     List<Tile> list = openSpace();
     if (!openSpace().isEmpty()) 
     {
-      int index = (int) (Math.random() * list.size()) % list.size();
+      int index = (int) (Math.random()* list.size()) % list.size();
       Tile emptyTile = list.get(index);
       emptyTile.value = Math.random() < 0.9 ? 3 : 6;
     }
