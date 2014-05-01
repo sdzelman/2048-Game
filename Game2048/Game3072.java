@@ -44,17 +44,41 @@ public class Game3072 extends JApplet
         {
           switch (keyinput.getKeyCode()) 
           {
-            case KeyEvent.VK_L:
-              right();
+            case KeyEvent.VK_L: //moves right
+              gametile = rotate(180);
+              move();
+              gametile = rotate(180);
               break;
-            case KeyEvent.VK_J:
-              left();
+            case KeyEvent.VK_RIGHT:
+              gametile = rotate(180);
+              move();
+              gametile = rotate(180);
               break;
-            case KeyEvent.VK_K:
-              down();
+            case KeyEvent.VK_J: //moves left
+              move();
               break;
-            case KeyEvent.VK_I:
-              up();
+            case KeyEvent.VK_LEFT:
+              move();
+              break;
+            case KeyEvent.VK_K: //moves down
+              gametile = rotate(90);
+              move();
+              gametile = rotate(270);;
+              break;
+            case KeyEvent.VK_DOWN:
+              gametile = rotate(90);
+              move();
+              gametile = rotate(270);;
+              break;
+            case KeyEvent.VK_I: //moves up
+              gametile = rotate(270);
+              move();
+              gametile = rotate(90);
+              break;
+            case KeyEvent.VK_UP:
+              gametile = rotate(270);
+              move();
+              gametile = rotate(90);
               break;
           }
         }
@@ -65,43 +89,22 @@ public class Game3072 extends JApplet
     );
     newGame();
   }
-
-  public void right() 
-  {
-    gametile = rotate(180);
-    left();
-    gametile = rotate(180);
-  }
-
-  public void up() 
-  {
-    gametile = rotate(270);
-    left();
-    gametile = rotate(90);
-  }
-
-  public void down() 
-  {
-    gametile = rotate(90);
-    left();
-    gametile = rotate(270);
-  }
   
-  public void left() 
+  public void move() 
   {
-    boolean needAddTile = false;
+    boolean needNewTile = false;
     for (int i = 0; i < 4; i++) 
     {
       Tile[] line = getLine(i);
       Tile[] merged = mergeLine(moveLine(line));
       setLine(i, merged);
-      if (!needAddTile && !compare(line, merged)) 
+      if (!needNewTile && !compare(line, merged)) 
       {
-        needAddTile = true;
+        needNewTile = true;
       }
     }
 
-    if (needAddTile) 
+    if (needNewTile) 
     {
       addTile();
     }
@@ -124,7 +127,7 @@ public class Game3072 extends JApplet
 
   private Tile[] rotate(int angle) 
   {
-    Tile[] newTiles = new Tile[4 * 4];
+    Tile[] newTiles = new Tile[ 16 ];
     int offsetX = 3, offsetY = 3;
     
     if (angle == 90) 
@@ -159,16 +162,16 @@ public class Game3072 extends JApplet
 
   private void addTile() 
   {
-    List<Tile> list = availableSpace();
-    if (!availableSpace().isEmpty()) 
+    List<Tile> list = openSpace();
+    if (!openSpace().isEmpty()) 
     {
-      int index = (int) (Math.random() * list.size()) % list.size();
+      int index = (int) (Math.random()* list.size()) % list.size();
       Tile emptyTile = list.get(index);
       emptyTile.value = Math.random() < 0.9 ? 3 : 6;
     }
   }
 
-  private List<Tile> availableSpace() 
+  private List<Tile> openSpace() 
   {
     final List<Tile> list = new ArrayList<Tile>(16);
     for (Tile t : gametile) 
@@ -180,15 +183,10 @@ public class Game3072 extends JApplet
     }
     return list;
   }
-
-  private boolean isFull() 
-  {
-    return availableSpace().size() == 0;
-  }
-
+  
   boolean canMove() 
   {
-    if (!isFull()) 
+    if (!(openSpace().size() == 0)) 
     {
       return true;
     }
@@ -280,7 +278,7 @@ public class Game3072 extends JApplet
     }
     
     else
-{
+    {
       ensureSize(list, 4);
       return list.toArray(new Tile[4]);
     }
@@ -304,7 +302,6 @@ public class Game3072 extends JApplet
     System.arraycopy(re, 0, gametile, index * 4, 4);
   }
 
-  @Override
   public void paint(Graphics g) {
     super.paint(g);
     g.setColor(BG_COLOR);
