@@ -1,41 +1,6 @@
 #BlueJ class context
+comment0.params=
 comment0.target=Game3072()
-<<<<<<< HEAD
-comment1.target=void\ right()
-comment10.target=boolean\ isFull()
-comment11.target=boolean\ canMove()
-comment12.params=line1\ line2
-comment12.target=boolean\ compare(Tile[],\ Tile[])
-comment13.params=initLine
-comment13.target=Tile[]\ moveLine(Tile[])
-comment14.params=initLine
-comment14.target=Tile[]\ mergeLine(Tile[])
-comment15.params=l\ s
-comment15.target=void\ ensureSize(java.util.List<Tile>,\ int)
-comment16.params=index
-comment16.target=Tile[]\ getLine(int)
-comment17.params=index\ re
-comment17.target=void\ setLine(int,\ Tile[])
-comment18.params=g
-comment18.target=void\ paint(Graphics)
-comment19.params=g2\ tile\ x\ y
-comment19.target=void\ drawTile(Graphics,\ Tile,\ int,\ int)
-comment2.target=void\ up()
-comment20.params=arg
-comment20.target=int\ offsetCoors(int)
-comment21.params=args
-comment21.target=void\ main(String[])
-comment3.target=void\ down()
-comment4.target=void\ left()
-comment5.target=void\ newGame()
-comment6.params=angle
-comment6.target=Tile[]\ rotate(int)
-comment7.params=x\ y
-comment7.target=Tile\ tileAt(int,\ int)
-comment8.target=void\ addTile()
-comment9.target=List<Tile>\ availableSpace()
-numComments=22
-=======
 comment1.params=keyinput
 comment1.target=void\ keyPressed(java.awt.event.KeyEvent)
 comment10.params=initLine
@@ -73,4 +38,3 @@ comment8.target=boolean\ canMove()
 comment9.params=line1\ line2
 comment9.target=boolean\ compare(Game3072.Tile[],\ Game3072.Tile[])
 numComments=19
->>>>>>> 64a2e03914f2f6e8ae09620e21ac8a7865fd4c49
