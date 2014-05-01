@@ -1,59 +1,41 @@
 #BlueJ package file
 <<<<<<< HEAD
+package.editor.height=556
+=======
+<<<<<<< HEAD
 package.editor.height=924
 package.editor.width=1802
 package.editor.x=1358
 package.editor.y=-8
 =======
 package.editor.height=570
+>>>>>>> a0945c2b812c961c444b1c557c45fbe4669e6d63
 package.editor.width=549
 package.editor.x=0
 package.editor.y=0
 >>>>>>> 1864397f4d92c3de70be6e1c8cd2d442636c0449
 package.numDependencies=0
-package.numTargets=2
+package.numTargets=1
 package.showExtends=true
 package.showUses=true
-<<<<<<< HEAD
-target1.editor.height=525
-target1.editor.width=626
-target1.editor.x=0
-target1.editor.y=0
-target1.height=50
-target1.name=Test
-target1.showInterface=false
-target1.type=ClassTarget
-target1.width=80
-target1.x=60
-target1.y=20
-target2.appletHeight=370
-target2.appletWidth=350
-target2.editor.height=754
-target2.editor.width=1382
-target2.editor.x=-8
-target2.editor.y=-8
-target2.height=50
-target2.name=Game3072
-target2.numberAppletParameters=0
-target2.showInterface=false
-target2.type=AppletTarget
-target2.width=90
-target2.x=210
-target2.y=80
-=======
 project.charset=UTF-8
-target1.editor.height=700
-target1.editor.width=900
-target1.editor.x=40
-target1.editor.y=20
+target1.appletHeight=500
+target1.appletWidth=500
+target1.editor.height=1056
+target1.editor.width=1936
+target1.editor.x=-8
+target1.editor.y=-8
 target1.height=50
-target1.name=Test
+target1.name=Game3072
 target1.naviview.expanded=false
+target1.numberAppletParameters=0
 target1.showInterface=false
-target1.type=ClassTarget
-target1.width=80
-target1.x=180
+target1.type=AppletTarget
+target1.width=90
+target1.x=80
 target1.y=10
+<<<<<<< HEAD
+=======
 target2.editor.height=1096
 target2.editor.width=1936
 target2.editor.x=1358
@@ -67,3 +49,4 @@ target2.width=90
 target2.x=80
 target2.y=10
 >>>>>>> 64a2e03914f2f6e8ae09620e21ac8a7865fd4c49
+>>>>>>> a0945c2b812c961c444b1c557c45fbe4669e6d63
