@@ -35,8 +35,4 @@ comment8.params=
 comment8.target=boolean\ canMove()
 comment9.params=line1\ line2
 comment9.target=boolean\ compare(Game3072.Tile[],\ Game3072.Tile[])
-<<<<<<< HEAD
 numComments=18
-=======
-numComments=19
->>>>>>> 831ed92cd6c0e96e25408047bf1108c24fb9e044

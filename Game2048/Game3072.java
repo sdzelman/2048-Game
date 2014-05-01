@@ -336,7 +336,7 @@ public class Game3072 extends JApplet
       g.setColor(new Color(255, 255, 255, 30));
       g.fillRect(0, 0, getWidth(), getHeight());
       g.setColor(new Color(78, 139, 202));
-      g.setFont(new Font(FONT_NAME, Font.BOLD, 48));
+      g.setFont(new Font("Helvetica", Font.BOLD, 48));
       if (winner) {
         g.drawString("You won!", 68, 150);
       }
@@ -344,12 +344,12 @@ public class Game3072 extends JApplet
         g.drawString("You lost!", 65, 60);
       }
       if (winner || loser) {
-        g.setFont(new Font(FONT_NAME, Font.PLAIN, 25));
+        g.setFont(new Font("Helvetica", Font.PLAIN, 25));
         g.setColor(new Color(128, 128, 128, 128));
         g.drawString("Press ENTER to restart", 35, getHeight() - 270);
       }
     }
-    g.setFont(new Font(FONT_NAME, Font.PLAIN, 18));
+    g.setFont(new Font("Helvetica", Font.PLAIN, 18));
     g.drawString("Score: " + totalScore, 200, 355);
   }
 
