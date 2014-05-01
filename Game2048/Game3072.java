@@ -202,7 +202,7 @@ public class Game3072 extends JApplet
       }
     }
     return list;
-}
+  }
 
   private boolean compare(Tile[] line1, Tile[] line2) 
   {
@@ -330,8 +330,10 @@ public class Game3072 extends JApplet
     final int h = -(int) fm.getLineMetrics(s, g).getBaselineOffsets()[2];
 
     if (value != 0)
-      g.drawString(s, xOffset + (TILE_SIZE - w) / 2, yOffset + TILE_SIZE - (TILE_SIZE - h) / 2 - 2);
-
+    {
+        g.drawString(s, xOffset + (TILE_SIZE - w) / 2, yOffset + TILE_SIZE - (TILE_SIZE - h) / 2 - 2);
+    }
+        
     if (winner || loser) {
       g.setColor(new Color(255, 255, 255, 30));
       g.fillRect(0, 0, getWidth(), getHeight());
@@ -349,8 +351,8 @@ public class Game3072 extends JApplet
         g.drawString("Press ENTER to restart", 35, getHeight() - 270);
       }
     }
-    g.setFont(new Font("Helvetica", Font.PLAIN, 18));
-    g.drawString("Score: " + totalScore, 200, 355);
+    g.setFont(new Font("Helvetica", Font.PLAIN, 25));
+    g.drawString("Score: " + totalScore, 15, 355);
   }
 
   private static int offsetCoors(int arg) {
@@ -392,18 +394,5 @@ public class Game3072 extends JApplet
       }
       return new Color(0xcdc1b4);
     }
-  }
-
-  public static void main(String[] args) {
-    JFrame game = new JFrame();
-    game.setTitle("APCS 3072");
-    game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    game.setSize(340, 400);
-    game.setResizable(false);
-
-    game.add(new Game3072());
-    
-    game.setLocationRelativeTo(null);
-    game.setVisible(true);
   }
 }
