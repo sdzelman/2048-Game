@@ -90,6 +90,41 @@ public class Game3072 extends JApplet
     newGame();
   }
   
+    public void newGame() 
+  {
+    totalScore = 0; //sets user score to 0
+    winner = false;
+    loser = false;
+    gametile = new Tile[4 * 4]; //sets the game board
+    
+    for (int i = 0; i < gametile.length; i++) 
+    {
+      gametile[i] = new Tile();
+    }
+    addTile();
+    addTile();
+  }
+  
+    boolean canMove() 
+  {
+    if (!(openSpace().size() == 0)) 
+    {
+      return true;
+    }
+    for (int x = 0; x < 3; x++) 
+    {
+      for (int y = 0; y < 3; y++) 
+      {
+        Tile t = tileAt(x, y);
+        if (t.value == tileAt(x + 1, y).value || t.value == tileAt(x, y + 1).value) 
+        {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+  
   public void move() 
   {
     boolean needNewTile = false;
@@ -109,21 +144,6 @@ public class Game3072 extends JApplet
       addTile();
     }
   }
-  
-  public void newGame() 
-  {
-    totalScore = 0; //sets user score to 0
-    winner = false;
-    loser = false;
-    gametile = new Tile[4 * 4]; //sets the game board
-    
-    for (int i = 0; i < gametile.length; i++) 
-    {
-      gametile[i] = new Tile();
-    }
-    addTile();
-    addTile();
-  }
 
   private Tile[] rotate(int angle) 
   {
@@ -141,8 +161,8 @@ public class Game3072 extends JApplet
     }
 
     double rad = Math.toRadians(angle);
-    int cos = (int) Math.cos(rad);
     int sin = (int) Math.sin(rad);
+    int cos = (int) Math.cos(rad);
     for (int x = 0; x < 4; x++) 
     {
       for (int y = 0; y < 4; y++) 
@@ -155,12 +175,7 @@ public class Game3072 extends JApplet
     return newTiles;
   }
 
-  private Tile tileAt(int x, int y) 
-  {
-    return gametile[x + y * 4];
-  }
-
-  private void addTile() 
+    private void addTile() 
   {
     List<Tile> list = openSpace();
     if (!openSpace().isEmpty()) 
@@ -169,6 +184,11 @@ public class Game3072 extends JApplet
       Tile emptyTile = list.get(index);
       emptyTile.value = Math.random() < 0.9 ? 3 : 6;
     }
+  }
+  
+  private Tile tileAt(int x, int y) 
+  {
+    return gametile[x + y * 4];
   }
 
   private List<Tile> openSpace() 
@@ -182,27 +202,7 @@ public class Game3072 extends JApplet
       }
     }
     return list;
-  }
-  
-  boolean canMove() 
-  {
-    if (!(openSpace().size() == 0)) 
-    {
-      return true;
-    }
-    for (int x = 0; x < 3; x++) 
-    {
-      for (int y = 0; y < 3; y++) 
-      {
-        Tile t = tileAt(x, y);
-        if (t.value == tileAt(x + 1, y).value || t.value == tileAt(x, y + 1).value) 
-        {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
+}
 
   private boolean compare(Tile[] line1, Tile[] line2) 
   {
