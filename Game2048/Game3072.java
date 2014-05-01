@@ -101,8 +101,13 @@ public class Game3072 extends JApplet
     {
       gametile[i] = new Tile();
     }
-    addTile();
-    addTile();
+    List<Tile> list = openSpace();
+    if (!openSpace().isEmpty()) 
+    {
+      int index = (int) (Math.random()* list.size()) % list.size();
+      Tile emptyTile = list.get(index);
+      emptyTile.value = Math.random() < 0.9 ? 3 : 6;
+    }
   }
   
     boolean canMove() 
@@ -147,7 +152,7 @@ public class Game3072 extends JApplet
 
   private Tile[] rotate(int angle) 
   {
-    Tile[] newTiles = new Tile[ 16 ];
+    Tile[] newTiles = new Tile[16];
     int offsetX = 3, offsetY = 3;
     
     if (angle == 90) 
@@ -175,7 +180,7 @@ public class Game3072 extends JApplet
     return newTiles;
   }
 
-    private void addTile() 
+  private void addTile() 
   {
     List<Tile> list = openSpace();
     if (!openSpace().isEmpty()) 
@@ -272,6 +277,7 @@ public class Game3072 extends JApplet
       }
       list.add(new Tile(num));
     }
+    
     if (list.size() == 0) 
     {
       return initLine;
