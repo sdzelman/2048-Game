@@ -5,8 +5,12 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JApplet;
+import javax.swing.SwingUtilities;
+import javax.swing.JLabel;
 
-public class Game3072 extends JPanel 
+public class Game3072 extends JApplet
+
 {
   private static final Color BG_COLOR = new Color(0xbbada0);
   private static final String FONT_NAME = "Helvetica";
@@ -123,7 +127,7 @@ public class Game3072 extends JPanel
 
   private Tile[] rotate(int angle) 
   {
-    Tile[] newTiles = new Tile[4 * 4];
+    Tile[] newTiles = new Tile[ 16 ];
     int offsetX = 3, offsetY = 3;
     
     if (angle == 90) 
@@ -161,7 +165,7 @@ public class Game3072 extends JPanel
     List<Tile> list = openSpace();
     if (!openSpace().isEmpty()) 
     {
-      int index = (int) (Math.random() * list.size()) % list.size();
+      int index = (int) (Math.random()* list.size()) % list.size();
       Tile emptyTile = list.get(index);
       emptyTile.value = Math.random() < 0.9 ? 3 : 6;
     }
@@ -380,7 +384,7 @@ public class Game3072 extends JPanel
       switch (value) {
         case 3:    return new Color(0xf9ad81);
         case 6:    return new Color(0xfdc68a);
-        case 12:    return new Color(0xfff79a);
+        case 12:   return new Color(0xfff79a);
         case 24:   return new Color(0xc4df9b);
         case 48:   return new Color(0xa2d39c);
         case 96:   return new Color(0x7bcdc8);
@@ -402,7 +406,7 @@ public class Game3072 extends JPanel
     game.setResizable(false);
 
     game.add(new Game3072());
-
+    
     game.setLocationRelativeTo(null);
     game.setVisible(true);
   }
