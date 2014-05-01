@@ -97,7 +97,7 @@ public class Game3072 extends JApplet
     {
       Tile[] line = getLine(i);
       Tile[] merged = mergeLine(moveLine(line));
-      setLine(i, merged);
+      System.arraycopy(merged, 0, gametile, i * 4, 4);
       if (!needNewTile && !compare(line, merged)) 
       {
         needNewTile = true;
@@ -296,10 +296,6 @@ public class Game3072 extends JApplet
       result[i] = tileAt(i, index);
     }
     return result;
-  }
-
-  private void setLine(int index, Tile[] re) {
-    System.arraycopy(re, 0, gametile, index * 4, 4);
   }
 
   public void paint(Graphics g) {
